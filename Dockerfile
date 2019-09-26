@@ -1,7 +1,7 @@
 ## Build stage
 FROM golang:1.11-alpine AS build-env
 ADD ./main.go /go/src/github.com/Roverr/rtsp-stream/main.go
-ADD src/core /go/src/github.com/Roverr/rtsp-stream/core
+ADD core /go/src/github.com/Roverr/rtsp-stream/core
 ADD ./Gopkg.lock /go/src/github.com/Roverr/rtsp-stream/Gopkg.lock
 ADD ./Gopkg.toml /go/src/github.com/Roverr/rtsp-stream/Gopkg.toml
 WORKDIR /go/src/github.com/Roverr/rtsp-stream

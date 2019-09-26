@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Roverr/rtsp-stream/core/config"
+	"core/config"
 	"github.com/julienschmidt/httprouter"
 )
 

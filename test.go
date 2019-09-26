@@ -1,5 +1,8 @@
 package main
 
 func main() {
-	println(1 + 2)
+	if(true) {
+		println(1 + 2)
+	}
+
 }
