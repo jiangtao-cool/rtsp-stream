@@ -14,9 +14,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Roverr/rtsp-stream/core/auth"
-	"github.com/Roverr/rtsp-stream/core/config"
-	"github.com/Roverr/rtsp-stream/core/streaming"
+	"core/auth"
+	"core/config"
+	"core/streaming"
 	"github.com/julienschmidt/httprouter"
 	"github.com/sirupsen/logrus"
 )
@@ -183,7 +183,7 @@ func (c *Controller) handleAlreadyKnownStream(w http.ResponseWriter, strm *strea
 		c.SendError(w, ErrUnexpected, http.StatusInternalServerError)
 		return
 	}
-	checkCh := c.manager.WaitForStream(fmt.Sprintf("%s/index.m3u8", strm.StorePath))
+	checkCh := WaitForStream(fmt.Sprintf("%s/index.m3u8", strm.StorePath))
 	<-checkCh
 	w.Header().Add("Content-Type", "application/json")
 	w.Write(b)
@@ -245,7 +245,7 @@ func (c *Controller) FileHandler(w http.ResponseWriter, req *http.Request, ps ht
 		logrus.Error(err)
 		return
 	}
-	checkCh := c.manager.WaitForStream(fmt.Sprintf("%s/index.m3u8", s.StorePath))
+	checkCh := WaitForStream(fmt.Sprintf("%s/index.m3u8", s.StorePath))
 	<-checkCh
 	s.Streak.Activate().Hit()
 }
@@ -255,7 +255,7 @@ func (c *Controller) startStream(uri, dir string, spec *config.Specification) ch
 	logrus.Infof("%s started processing", dir)
 	stream, physicalPath := c.processor.NewStream(uri)
 	c.streams[dir] = stream
-	ch := c.manager.Start(stream.CMD, physicalPath)
+	ch := Start(stream.CMD, physicalPath)
 	return ch
 }
 

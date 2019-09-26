@@ -8,8 +8,8 @@ import (
 
 	"github.com/rs/cors"
 
-	"github.com/Roverr/rtsp-stream/core"
-	"github.com/Roverr/rtsp-stream/core/config"
+	"core"
+	"core/config"
 	"github.com/sirupsen/logrus"
 )
 
