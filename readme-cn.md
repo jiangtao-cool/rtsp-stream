@@ -17,3 +17,16 @@ require (
 	github.com/sirupsen/logrus v1.2.0
 	github.com/stretchr/testify v1.2.2
 )
+go get github.com/Roverr/hotstreak
+go get github.com/brianvoe/gofakeit
+go get github.com/davecgh/go-spew
+go get github.com/dgrijalva/jwt-go
+go get github.com/julienschmidt/httprouter
+go get github.com/kelseyhightower/envconfig
+go get github.com/kennygrant/sanitize
+go get github.com/konsorten/go-windows-terminal-sequences
+go get github.com/natefinch/lumberjack
+go get github.com/pmezard/go-difflib
+go get github.com/rs/cors
+go get github.com/sirupsen/logrus
+go get github.com/stretchr/testify

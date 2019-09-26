@@ -1,8 +1,13 @@
 package streaming
 
 import (
+	"core/config"
 	"errors"
 	"fmt"
+	"github.com/Roverr/hotstreak"
+	"github.com/kennygrant/sanitize"
+	"github.com/natefinch/lumberjack"
+	"github.com/sirupsen/logrus"
 	"net/url"
 	"os"
 	"os/exec"
@@ -10,11 +15,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Roverr/hotstreak"
-	"github.com/Roverr/rtsp-stream/core/config"
-	"github.com/kennygrant/sanitize"
-	"github.com/natefinch/lumberjack"
-	"github.com/sirupsen/logrus"
+	// jiangtao 注释
+	//"github.com/Roverr/hotstreak"
+	//"core/config"
+	//"github.com/kennygrant/sanitize"
+	//"github.com/natefinch/lumberjack"
+	//"github.com/sirupsen/logrus"
 )
 
 // ErrInvalidHost describes an error for a hostname that is considered invalid if it's empty
